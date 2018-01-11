@@ -38,7 +38,7 @@ def done(candies):
 	if all(count == 1 for count in candies.values()):
 		return True		# one of each color
 	paired_color = get_paired_color(candies)	# 1 pair and nothing else
-	return paired_color is not None and len([1 for count in candies.values() if count > 0]) == 0
+	return paired_color is not None and [color for color, count in candies.items() if count > 0] == [paired_color]
 
 def run():
 	candies = get_initial_candies()
